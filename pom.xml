@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.shinemo.openapi</groupId>
+    <artifactId>openapi-aeskey</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>war</packaging>
+
+    <description>讯盟开发平台AesKey</description>
+    <url>http://shinemo.com</url>
+
+    <licenses>
+        <license>
+            <name>The Apache Software License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <issueManagement>
+        <system>GitHub Issues</system>
+        <url>https://github.com/jituancaiyun/openapi-aeskey/issues</url>
+    </issueManagement>
+
+    <organization>
+        <name>ShineMo, Inc.</name>
+        <url>http://shinemo.com</url>
+    </organization>
+
+    <developers>
+        <developer>
+            <name>yanxx</name>
+            <email>yanxx@shinemo.com</email>
+            <organization>jituancaiyun</organization>
+        </developer>
+        <developer>
+            <name>szx</name>
+            <email>songzx@shinemo.com</email>
+            <organization>jituancaiyun</organization>
+        </developer>
+        <developer>
+            <name>lyj</name>
+            <email>liuyj@shinemo.com</email>
+            <organization>jituancaiyun</organization>
+        </developer>
+    </developers>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.encoding>UTF-8</java.encoding>
+        <java.version>1.6</java.version>
+    </properties>
+    <build>
+        <finalName>aeskey</finalName>
+        <plugins>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                    <encoding>${java.encoding}</encoding>
+                </configuration>
+            </plugin>
+            <plugin>
+                <artifactId>maven-resources-plugin</artifactId>
+                <configuration>
+                    <encoding>${java.encoding}</encoding>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <skip>true</skip>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+    <dependencies>
+        <dependency>
+            <groupId>com.shinemo.openapi</groupId>
+            <artifactId>openapi-client</artifactId>
+            <version>1.0</version>
+            <systemPath>
+                ${project.basedir}/src/main/webapp/WEB-INF/lib/openapi-client-1.0.1-SNAPSHOT-jar-with-dependencies.jar
+            </systemPath>
+            <scope>system</scope>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>6.0.6</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-dbcp2 -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-dbcp2</artifactId>
+            <version>2.1.1</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/javax.servlet/servlet-api -->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>servlet-api</artifactId>
+            <version>2.5</version>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
+</project>
