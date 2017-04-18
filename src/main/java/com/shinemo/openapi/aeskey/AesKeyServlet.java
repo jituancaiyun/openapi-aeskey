@@ -25,7 +25,6 @@ import com.shinemo.openapi.client.aes.AesKeyService;
 import com.shinemo.openapi.client.aes.DefaultAesKeyService;
 import com.shinemo.openapi.client.aes.db.MysqlAesKeyDao;
 import com.shinemo.openapi.client.aes.domain.AesKeyEntity;
-import com.shinemo.openapi.client.common.Const;
 import com.shinemo.openapi.client.common.OpenApiResult;
 import com.shinemo.openapi.client.service.AuthApiService;
 import org.apache.commons.dbcp2.BasicDataSource;
@@ -39,6 +38,8 @@ import javax.sql.DataSource;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
+
+import static com.shinemo.openapi.client.common.Const.LOG;
 
 /**
  * Created by ohun on 2017/4/18.
@@ -77,7 +78,7 @@ public final class AesKeyServlet extends HttpServlet {
             this.writeResult(resp, result);
         } catch (Exception e) {
             this.writeResult(resp, OpenApiResult.failure(500, "服务器内部错误"));
-            Const.LOG.error("get aes key error, ids={}, orgId={}, uid={}, token={}, timestamp={}", ids, orgId, uid, token, timestamp, e);
+            LOG.error("get aes key error, ids={}, orgId={}, uid={}, token={}, timestamp={}", ids, orgId, uid, token, timestamp, e);
         }
     }
 
@@ -107,6 +108,10 @@ public final class AesKeyServlet extends HttpServlet {
 
         openApiClient = apiClient;
         aesKeyService = defaultAesKeyService;
+
+        System.err.println("===================================================================");
+        System.err.println("===============OPEN-API-AES-KEY SERVER START SUCCESS===============");
+        System.err.println("===================================================================");
     }
 
     public static OpenApiConfiguration createConfig() {

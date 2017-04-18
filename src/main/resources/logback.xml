@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration debug="true">
+    <property name="log.root.level" value="warn"/> <!-- 日志级别 -->
+    <property name="log.home" value="/tmp/logs/aeskey"/>  <!-- 日志路径，这里是相对路径， -->
+
+    <!-- app log -->
+    <appender name="OPEN_API_APPENDER" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${log.home}/openapi.log</file>
+        <append>true</append>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${log.home}/openapi.log.%d{yyyy-MM-dd}
+            </fileNamePattern>
+            <maxHistory>10</maxHistory>
+        </rollingPolicy>
+        <encoder charset="UTF-8">
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} - [%thread] %-5level - %logger{35} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <target>System.out</target>
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>DEBUG</level>
+        </filter>
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} -[console]- %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <root>
+        <level value="${log.root.level}"/>
+        <appender-ref ref="OPEN_API_APPENDER"/>
+        <appender-ref ref="STDOUT"/>
+    </root>
+
+    <logger name="com.shinemo.openapi.client" additivity="false">
+        <level value="debug"/>
+        <appender-ref ref="OPEN_API_APPENDER"/>
+    </logger>
+
+</configuration>
+
