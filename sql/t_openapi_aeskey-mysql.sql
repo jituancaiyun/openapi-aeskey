@@ -1,4 +1,4 @@
-CREATE TABLE shinemo_openapi.t_openapi_aeskey
+CREATE TABLE t_openapi_aeskey
 (
   id           INT DEFAULT '0' NOT NULL AUTO_INCREMENT PRIMARY KEY
   COMMENT '主键密钥ID',
