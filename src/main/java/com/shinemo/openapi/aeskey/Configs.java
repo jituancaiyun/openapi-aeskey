@@ -1,12 +1,11 @@
 package com.shinemo.openapi.aeskey;
 
 import com.shinemo.openapi.client.common.OpenApiException;
-import com.shinemo.openapi.client.common.OpenUtils;
+import com.shinemo.openapi.client.common.OpenApiUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.*;
-import java.net.URL;
+import java.io.InputStream;
 import java.util.Properties;
 
 public final class Configs {
@@ -26,7 +25,7 @@ public final class Configs {
         } catch (Exception e) {
             LOG.error("Failed to load config from " + file + ", cause:" + e.getMessage(), e);
         } finally {
-            OpenUtils.silentClose(stream);
+            OpenApiUtils.silentClose(stream);
         }
     }
 
